@@ -39,5 +39,4 @@
 
 # debug information files
 *.dwo
-ex00/Fixed
-ex01/Fixed
+*/Fixed
