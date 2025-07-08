@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 12:48:54 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/08 16:53:11 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:19:55 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class Fixed
 		static const int	_fracBits;
 	public:
 		Fixed();
+		Fixed(Fixed& fixed);
 		~Fixed();
-		Fixed( Fixed& fixed);
-		//Fixed& dst=(const Fixed& src);
+		Fixed& operator=(const Fixed& fixed);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };

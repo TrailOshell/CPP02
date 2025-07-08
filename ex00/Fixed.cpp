@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 12:48:50 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/08 16:42:23 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:28:17 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,23 @@ Fixed::Fixed()
 	_fpNum = 0;
 }
 
+Fixed::Fixed(Fixed &fixed)
+{
+	std::cout << YLW "Copy constructor called" NCL << std::endl;
+	*this = fixed;
+}
+
+Fixed &Fixed::operator=(const Fixed& fixed)
+{
+	std::cout << PUR "Copy assignment operator called" NCL << std::endl;
+	_fpNum = fixed.getRawBits();
+	return (*this);
+}
+
 Fixed::~Fixed()
 {
 	std::cout << RED "Destructor called" NCL << std::endl;
 }
-
-Fixed::Fixed(Fixed &fixed)
-{
-	std::cout << YLW "Copy constructor called" NCL << std::endl;
-	_fpNum = fixed._fpNum;
-}
-	//std::cout << YLW "Copy assignment operator called" NCL << std::endl;
 
 int Fixed::getRawBits(void) const
 {
