@@ -23,13 +23,13 @@ Fixed::Fixed()
 Fixed::Fixed(const int number)
 {
 	std::cout << PUR"Int " GRN"constructor called" NCL << std::endl;
-	_fpNum = number;
+	_fpNum = number << _fractBits;
 }
 
 Fixed::Fixed(const float number)
 {
 	std::cout << CYN"Float " GRN"constructor called" NCL << std::endl;
-	_fpNum = number;
+	_fpNum = roundf(number * (1 << _fractBits));
 }
 
 Fixed::Fixed(const Fixed &fixed)
@@ -52,7 +52,8 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << CYN "getRawBits member function called" NCL << std::endl;
+	// why is the example don't want to show getRawbits() somehow?
+	//std::cout << CYN "getRawBits member function called" NCL << std::endl;
 	return (_fpNum);
 }
 
@@ -63,12 +64,12 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return ((float)_fpNum);
+	return ((float)_fpNum / (float)(1 << _fractBits));
 }
 
 int Fixed::toInt( void ) const
 {
-	return ((int)_fpNum);
+	return (_fpNum >> _fractBits);
 }
 
 std::ostream &operator<<(std::ostream &outStream, Fixed const &fixed)
