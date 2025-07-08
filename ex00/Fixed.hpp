@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 12:48:54 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/08 18:19:55 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:39:25 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 	private:
 		int					_fpNum;
-		static const int	_fracBits;
+		static const int	_fractBits;
 	public:
 		Fixed();
 		Fixed(Fixed& fixed);

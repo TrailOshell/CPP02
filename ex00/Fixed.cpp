@@ -6,11 +6,13 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 12:48:50 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/08 18:28:17 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:39:10 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_fractBits = 8;
 
 Fixed::Fixed()
 {
