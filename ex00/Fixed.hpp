@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 12:48:54 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/08 13:03:07 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:53:11 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Fixed
 	public:
 		Fixed();
 		~Fixed();
+		Fixed( Fixed& fixed);
+		//Fixed& dst=(const Fixed& src);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
