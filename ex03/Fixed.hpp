@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 00:29:16 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/09 00:29:19 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:50:50 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Fixed
 		static Fixed &min(Fixed &a, Fixed &b);
 		static const Fixed &min(Fixed const &a, Fixed const &b);
 		static Fixed &max(Fixed &a, Fixed &b);
-		static const Fixed &max(Fixed const &a, const Fixed &b);
+		static const Fixed &max(Fixed const &a, Fixed const &b);
 		
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
