@@ -37,17 +37,17 @@ int main(void)
 		std::cout << PUR "fix_a\t= " NCL << fix_a << std::endl;
 		std::cout << PUR "fix_b\t= " NCL << fix_b << std::endl;
 
-		std::cout << YLW << fix_a << " >  " << fix_b << PUR" = " << CYN << (fix_a >  fix_b) << NCL << std::endl;
-		std::cout << YLW << fix_a << " <  " << fix_b << PUR" = " << CYN << (fix_a <  fix_b) << NCL << std::endl;
-		std::cout << YLW << fix_a << " >= " << fix_b << PUR" = " << CYN << (fix_a >= fix_b) << NCL << std::endl;
-		std::cout << YLW << fix_a << " <= " << fix_b << PUR" = " << CYN << (fix_a <= fix_b) << NCL << std::endl;
-		std::cout << YLW << fix_a << " == " << fix_b << PUR" = " << CYN << (fix_a == fix_b) << NCL << std::endl;
-		std::cout << YLW << fix_a << " != " << fix_b << PUR" = " << CYN << (fix_a != fix_b) << NCL << std::endl;
+		std::cout << YLW "GRT: " << fix_a << " >  " << fix_b << PUR" = " << CYN << (fix_a >  fix_b) << NCL << std::endl;
+		std::cout << YLW "LSS: " << fix_a << " <  " << fix_b << PUR" = " << CYN << (fix_a <  fix_b) << NCL << std::endl;
+		std::cout << YLW "GRE: " << fix_a << " >= " << fix_b << PUR" = " << CYN << (fix_a >= fix_b) << NCL << std::endl;
+		std::cout << YLW "LSE: " << fix_a << " <= " << fix_b << PUR" = " << CYN << (fix_a <= fix_b) << NCL << std::endl;
+		std::cout << YLW "EQL: " << fix_a << " == " << fix_b << PUR" = " << CYN << (fix_a == fix_b) << NCL << std::endl;
+		std::cout << YLW "NEQ: " << fix_a << " != " << fix_b << PUR" = " << CYN << (fix_a != fix_b) << NCL << std::endl;
 
-		std::cout << NCL "add: " YLW << fix_a << " + " << fix_b << PUR" = " CYN << fix_a + fix_b << NCL << std::endl;
-		std::cout << NCL "sub: " YLW << fix_a << " - " << fix_b << PUR" = " CYN << fix_a - fix_b << NCL << std::endl;
-		std::cout << NCL "tim: " YLW << fix_a << " * " << fix_b << PUR" = " CYN << fix_a * fix_b << NCL << std::endl;
-		std::cout << NCL "div: " YLW << fix_a << " / " << fix_b << PUR" = " CYN << fix_a / fix_b << NCL << std::endl;
+		std::cout << NCL "ADD: " YLW << fix_a << " + " << fix_b << PUR" = " CYN << fix_a + fix_b << NCL << std::endl;
+		std::cout << NCL "SUB: " YLW << fix_a << " - " << fix_b << PUR" = " CYN << fix_a - fix_b << NCL << std::endl;
+		std::cout << NCL "MUL: " YLW << fix_a << " * " << fix_b << PUR" = " CYN << fix_a * fix_b << NCL << std::endl;
+		std::cout << NCL "DIV: " YLW << fix_a << " / " << fix_b << PUR" = " CYN << fix_a / fix_b << NCL << std::endl;
 
 		std::cout << YLW "min( fix_a, fix_b ) " PUR"= " CYN << Fixed::min( fix_a, fix_b ) << NCL << std::endl;
 		std::cout << YLW "max( fix_a, fix_b ) " PUR"= " CYN << Fixed::max( fix_a, fix_b ) << NCL << std::endl;
