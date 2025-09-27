@@ -6,18 +6,20 @@
 #    By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 00:29:08 by tsomchan          #+#    #+#              #
-#    Updated: 2025/07/09 00:29:09 by tsomchan         ###   ########.fr        #
+#    Updated: 2025/09/27 18:22:16 by tsomchan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	Fixed
+NAME			=	bsp
 
 INC				=	.
 
-INCS			=	Fixed.hpp
+INCS			=	Fixed.hpp Point.hpp
 
 SRCS			=	main.cpp \
-					Fixed.cpp
+					Fixed.cpp \
+					Point.cpp \
+					bsp.cpp
 
 OBJS_PTH		=	obj/
 OBJS			=	$(SRCS:%.cpp=$(OBJS_PTH)%.o)
@@ -32,6 +34,7 @@ $(NAME): $(OBJS)
 
 $(OBJS_PTH)%.o: %.cpp Makefile $(INCS) | $(OBJS_PTH)
 	$(C++) $(C++FLAGS) -c $< -o $@
+
 $(OBJS_PTH):
 	mkdir -p $(OBJS_PTH)
 

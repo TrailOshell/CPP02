@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 00:29:02 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/09 01:02:47 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/09/27 17:56:10 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Point
 		const Fixed _y;
 	public:
 		Point();
-		Point(const float x, const float y);
+		Point(const Fixed x, const Fixed y);
 		Point(const Point &point);
 		~Point();
 
