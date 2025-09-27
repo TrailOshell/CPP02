@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 00:28:58 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/07/09 00:28:59 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/09/27 21:52:45 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,36 @@ const int Fixed::_fractBits = 8;
 
 Fixed::Fixed()
 {
-	if (DEBUG_MODE == 1) std::cout << GRN "Default constructor called" NCL << std::endl;
+	if (DEBUG_MODE == 2) std::cout << GRN "Default constructor called" NCL << std::endl;
 	_fpNum = 0;
 }
 
 Fixed::Fixed(const int number)
 {
-	if (DEBUG_MODE == 1) std::cout << PUR"Int " GRN"constructor called" NCL << std::endl;
+	if (DEBUG_MODE == 2) std::cout << PUR"Int " GRN"constructor called" NCL << std::endl;
 	_fpNum = number << _fractBits;
 }
 
 Fixed::Fixed(const float number)
 {
-	if (DEBUG_MODE == 1) std::cout << CYN"Float " GRN"constructor called" NCL << std::endl;
+	if (DEBUG_MODE == 2) std::cout << CYN"Float " GRN"constructor called" NCL << std::endl;
 	_fpNum = roundf(number * (1 << _fractBits));
 }
 
 Fixed::Fixed(const Fixed &fixed)
 {
-	if (DEBUG_MODE == 1) std::cout << YLW "Copy constructor called" NCL << std::endl;
+	if (DEBUG_MODE == 2) std::cout << YLW "Copy constructor called" NCL << std::endl;
 	*this = fixed;
 }
 
 Fixed::~Fixed()
 {
-	if (DEBUG_MODE == 1) std::cout << RED "Destructor called" NCL << std::endl;
+	if (DEBUG_MODE == 2) std::cout << RED "Destructor called" NCL << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-	if (DEBUG_MODE == 1) std::cout << PUR "Copy assignment operator called" NCL << std::endl;
+	if (DEBUG_MODE == 2) std::cout << PUR "Copy assignment operator called" NCL << std::endl;
 	_fpNum = fixed.getRawBits();
 	return (*this);
 }
@@ -165,7 +165,7 @@ std::ostream &operator<<(std::ostream &outStream, Fixed const &fixed)
 
 int Fixed::getRawBits(void) const
 {
-	if (DEBUG_MODE == 1) std::cout << CYN "getRawBits member function called" NCL << std::endl;
+	if (DEBUG_MODE == 2) std::cout << CYN "getRawBits member function called" NCL << std::endl;
 	return (_fpNum);
 }
 
