@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 00:29:12 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/09/27 22:20:26 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/09/28 12:29:46 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void)
 	if (DEBUG_MODE != 0) std::cout << "DEBUG" << std::endl;
 
 	// check inside or outside
-	if (bsp(Point(0, 0), Point(1, 5), Point(3, 5), Point(3, 3)) == true)
+	if (bsp(Point(0, 0), Point(5, 0), Point(3, 5), Point(3, 3)) == true)
 		std::cout << GRN "point is inside triangle" << std::endl;
 	else
 		std::cout << RED "point is outside triangle" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 00:29:02 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/09/27 22:07:41 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/09/28 12:58:34 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,9 @@ class Point
 
 std::ostream &operator<<(std::ostream &o, Point const &point);
 bool bsp( Point const a, Point const b, Point const c, Point const point);
+
+void db_point(std::string name, std::string color, Point const point);
+void db_bsp(Point const a, Point const b, Point const c, Point const point);
+void db_bsp_areas(float A, float A1, float A2, float A3);
 
 #endif

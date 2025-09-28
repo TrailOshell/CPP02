@@ -6,93 +6,93 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 00:43:55 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/09/27 22:31:43 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/09/28 13:06:34 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Point.hpp"
 
-bool check_overlap_edges( Point const a, Point const b, Point const c, Point const point)
+bool check_overlap_edges(Point const a, Point const b, Point const c, Point const point)
 {
-	Fixed ax = a.getX();
-	Fixed ay = a.getY();
-	Fixed bx = b.getX();
-	Fixed by = b.getY();
-	Fixed cx = c.getX();
-	Fixed cy = c.getY();
-	Fixed px = point.getX();
-	Fixed py = point.getY();
-
-	if ( (px == ax && py == ay) || (px == bx && py == by) || (px == cx && py == cy) )
+	if ((point.getX() == a.getX() && point.getY() == a.getY()) ||
+		(point.getX() == b.getX() && point.getY() == b.getY()) ||
+		(point.getX() == c.getX() && point.getY() == c.getY()))
+	{
+		if (DEBUG_MODE != 0) std::cout << YLW "point is overlap with edges" << std::endl;
 		return (true);
+	}
 	else
 		return (false);
 }
 
-Fixed area(Point const p1, Point const p2, Point const p3)
+float subarea(Point x, Point y1, Point y2)
 {
-	Fixed x1 = p1.getX();
-	Fixed y1 = p1.getY();
-	Fixed x2 = p2.getX();
-	Fixed y2 = p2.getY();
-	Fixed x3 = p3.getX();
-	Fixed y3 = p3.getY();
-
-	if (DEBUG_MODE == 1)
-	{
-		std::cout << YLW "area()" NCL << std::endl;
-		std::cout << YLW "x1 = " NCL << x1 << YLW " y1 = " NCL << y1 << std::endl;
-		std::cout << YLW "x2 = " NCL << x2 << YLW " y2 = " NCL << y2 << std::endl;
-		std::cout << YLW "x3 = " NCL << x3 << YLW " y3 = " NCL << y3 << std::endl;
-	}
-
-	return (Fixed((const float) ((x1 * (y2 - y3) + x2 *(y3 - y1)+ x3 * (y1 - y2)) / 2.0)));
+	return (x.getX().toFloat() * (y1.getY().toFloat() - y2.getY().toFloat()));
 }
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+float area(Point const p1, Point const p2, Point const p3)
 {
-	//if (check_overlap_edges(a, b, c, point) == true)
-	//{
-	//	if (DEBUG_MODE == 1) std::cout << YLW "point is overlap with edges" << std::endl;
-	//	return (false);
-	//}
+	// basically formula of --> area = ( x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2) ) / 2;
+	float area = ( subarea(p1, p2, p3) + subarea(p2, p3, p1) + subarea(p3, p1, p2) ) / 2;
 
-	Fixed ax = a.getX();
-	Fixed ay = a.getY();
-	Fixed bx = b.getX();
-	Fixed by = b.getY();
-	Fixed cx = c.getX();
-	Fixed cy = c.getY();
-	Fixed px = point.getX();
-	Fixed py = point.getY();
+	if (area < 0)
+		area *= -1;
 
-	std::cout << "a " << ax << " " << ay << std::endl;
-	std::cout << "b " << bx << " " << by << std::endl;
-	std::cout << "c " << cx << " " << cy << std::endl;
-	std::cout << "p " << px << " " << py << std::endl;
+	return (area);
+}
 
+bool bsp(Point const a, Point const b, Point const c, Point const point)
+{
+	if (DEBUG_MODE != 0) db_bsp(a, b, c, point);
 
-	//std::cout << c.getX() << std::endl;
-	//std::cout << c.getY() << std::endl;
+	if (check_overlap_edges(a, b, c, point) == true)
+		return (false);
 
-	Fixed A = area(a, b, c);
-	Fixed A1 = area(a, b, point);
-	Fixed A2 = area(a, c, point);
-	Fixed A3 = area(b, c, point);
-	
-	//Fixed A = Fixed((const float) ((ax * (by - cy) + bx *(cy - ay)+ cx * (ay - by)) / 2.0));
-	//Fixed A1 = area(a, b, point);
-	//Fixed A2 = area(a, c, point);
-	//Fixed A3 = area(b, c, point);
+	float A = area(a, b, c);
+	float A1 = area(a, b, point);
+	float A2 = area(a, c, point);
+	float A3 = area(b, c, point);
+	if (DEBUG_MODE != 0) db_bsp_areas(A, A1, A2, A3);
 
-	if (DEBUG_MODE == 1)
-	{
-		std::cout << PUR "All (a b c) = " NCL << A.toFloat() << std::endl;
-		std::cout << RED "A1  (a b p) = " NCL << A1.toFloat() << std::endl;
-		std::cout << BLU "A2  (a c p) = " NCL << A2.toFloat() << std::endl;
-		std::cout << GRN "A3  (b c p) = " NCL << A3.toFloat() << std::endl;
-	}
+	return (A == A1 + A2 + A3);
+}
 
-	return (A.toFloat() == A1.toFloat() + A2.toFloat() + A3.toFloat());
+void db_point(std::string name, std::string color, Point const point)
+{
+	if (DEBUG_MODE == 0)
+		return ;
+
+	std::cout
+	<< color << name << "(" NCL
+	<< point.getX()
+	<< color << ", " NCL
+	<< point.getY()
+	<< color << ") " NCL;
+}
+
+void db_bsp(Point const a, Point const b, Point const c, Point const point)
+{
+	if (DEBUG_MODE == 0)
+		return ;
+
+	std::cout << GRN "bsp Points: " NCL;
+	db_point("a", RED, a);
+	db_point("b", BLU, b);
+	db_point("c", YLW, c);
+	db_point("p", PUR, point);
+	std::cout << std::endl;
+}
+
+void db_bsp_areas(float A, float A1, float A2, float A3)
+{
+	if (DEBUG_MODE == 0)
+		return ;
+
+	std::cout
+	<< PUR "All(a b c) = " NCL << A << CYN " | " NCL 
+	<< CYN"A1" CYN"(" RED"a " BLU"b " PUR"p" CYN") = " NCL << A1 << CYN " | " NCL
+	<< CYN"A2" CYN"(" RED"a " YLW"c " PUR"p" CYN") = " NCL << A2 << CYN " | " NCL
+	<< CYN"A3" CYN"(" BLU"b " YLW"c " PUR"p" CYN") = " NCL << A3 << CYN " | " NCL
+	<< std::endl;
 }
