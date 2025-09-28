@@ -6,7 +6,7 @@
 /*   By: tsomchan <tsomchan@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 00:43:55 by tsomchan          #+#    #+#             */
-/*   Updated: 2025/09/28 13:06:34 by tsomchan         ###   ########.fr       */
+/*   Updated: 2025/09/28 16:03:20 by tsomchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ void db_bsp_areas(float A, float A1, float A2, float A3)
 		return ;
 
 	std::cout
-	<< PUR "All(a b c) = " NCL << A << CYN " | " NCL 
-	<< CYN"A1" CYN"(" RED"a " BLU"b " PUR"p" CYN") = " NCL << A1 << CYN " | " NCL
-	<< CYN"A2" CYN"(" RED"a " YLW"c " PUR"p" CYN") = " NCL << A2 << CYN " | " NCL
-	<< CYN"A3" CYN"(" BLU"b " YLW"c " PUR"p" CYN") = " NCL << A3 << CYN " | " NCL
-	<< std::endl;
+	<< PUR "All  (a b c) = " NCL << A << NCL << std::endl
+	<< CYN"A1 + A2 + A3 = " << A1 + A2 + A3 << NCL << std::endl
+	<< CYN"A1   " CYN"(" RED"a " BLU"b " PUR"p" CYN") = " NCL << A1 << NCL << std::endl
+	<< CYN"A2   " CYN"(" RED"a " YLW"c " PUR"p" CYN") = " NCL << A2 << NCL << std::endl
+	<< CYN"A3   " CYN"(" BLU"b " YLW"c " PUR"p" CYN") = " NCL << A3 << NCL << std::endl;
 }
